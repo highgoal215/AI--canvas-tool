@@ -24,7 +24,6 @@ export const AIPanel = () => {
   const [isGeneratingImage, setIsGeneratingImage] = useState(false);
 
   const getText = async (prompt: string) => {
-
     try {
       const res = await fetch("http://localhost:3000/generate-text", {
         method: "POST",
@@ -98,13 +97,7 @@ export const AIPanel = () => {
   const generateImage = async () => {
     if (!imagePrompt.trim()) return;
 
-
     setIsGeneratingImage(true);
-
-
-
-
-
 
     try {
       // Call the API and get the image response
@@ -161,7 +154,7 @@ export const AIPanel = () => {
   ];
   return (
     <div className="flex-1 p-6 bg-gray-50">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto p-4 mt-8 space-y-6">
         <div className="flex items-center space-x-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
             <Sparkles className="w-5 h-5 text-white" />
@@ -288,11 +281,9 @@ export const AIPanel = () => {
                 </div>
                 <Button
                   onClick={generateImage}
-
                   disabled={isGeneratingImage || !imagePrompt.trim()}
                   className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
                 >
-
                   {isGeneratingImage ? (
                     <>
                       <Sparkles className="w-4 h-4 mr-2 animate-spin" />
@@ -305,9 +296,6 @@ export const AIPanel = () => {
                     </>
                   )}
                 </Button>
-
-
-
               </CardContent>
             </Card>
           </TabsContent>
@@ -369,8 +357,6 @@ export const AIPanel = () => {
           </TabsContent>
         </Tabs>
       </div>
-
-
 
       {/* AI Generated Content Display Section */}
       <div className="max-w-7xl mx-auto p-4 mt-8 space-y-6">
